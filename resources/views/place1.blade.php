@@ -13,7 +13,7 @@
         .hero {
             text-align: justify;
         }
-        .white-box p {
+        .white-box  {
             text-align: center;
         }
         .header .navbar a:hover,
@@ -21,15 +21,15 @@
             color: #ffd700;
         }
         .white-box {
-        background-color: #7ba5e4;
-        padding: 20px;
-        margin: 50px auto;
-        width: 50%;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column; /* Stack text and images vertically */
-        font-size: 1.5rem;
+            background-color: #7ba5e4;
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5rem;
         }
         .text-center p {
             margin: 3rem 0;
@@ -38,33 +38,28 @@
             font-size: 1rem;
         }
         .box-item {
-        display: flex;
-        flex-direction: column; /* Stack items vertically */
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .center {
+            align-items: center;
+        }
 
-.center {
-    align-items: center;
-
-}
-.text-center {
-    flex: 1;
-    text-align: center;
-    margin-bottom: 20px; /* Space between text and images */
-}
-
-.white-space {
-    text-align: center;
-    margin-bottom: 30px; /* Space between text and buttons */
-}
+        .text-left {
+            flex: 1;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .white-space {
+            text-align: center;
+            margin-bottom: 30px;
+        }
         .white-space h5 {
             white-space: pre;
             text-align: center;
-        }
-        .white-space :left {
-            text-align: left;
         }
         .box-item {
             display: flex;
@@ -73,14 +68,8 @@
             width: 100%;
         }
         .box-item img {
-
             padding: 20px;
-            width: 40%;
-        }
-        .text-center {
-            flex: 1;
-            text-align: center;
-            padding: 0 20px;
+            width: 30%;
         }
         /* Button Styles */
         .hero-btn, .blog-btn, .blod-title {
@@ -89,13 +78,12 @@
             margin: 10px 0;
             text-decoration: none;
             border-radius: 5px;
-            color: white; /* Text color */
-            background-color: #c49564; /* Button background color */
-            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            color: white;
+            background-color: #c49564;
+            transition: background-color 0.3s ease;
         }
-
         .hero-btn:hover, .blog-btn:hover, .blod-title:hover {
-            background-color: #8f6d4a; /* Darker shade on hover */
+            background-color: #8f6d4a;
         }
         /* Remove underline from navbar links */
         .navbar a {
@@ -114,7 +102,7 @@
         <a href="boxing">ท่ามวย</a>
         <a href="course">โปรแกรมการสอน</a>
         <a href="teacher">ทีมงาน</a>
-        <a href="contact">ติดต่อเรา</a>
+        <a href="#ติดต่อเรา">ติดต่อเรา</a>
         <a href="loginpages">เข้าสู่ระบบ</a>
     </nav>
 </header>
@@ -137,42 +125,34 @@
     <div class="white-space">
         <div class="box-item">
             <div class="white-space">
-<img src="{{('assets/10.jpg')}}" alt="">
-<img src="{{('assets/9.jpg')}}" alt="">
-</div>
-
-            <!-- Center Text -->
-             <h3>รายละเอียด</h3>
-            <div class="white-space">
-
-                <p>หน้าค่ายมวยจะเป็นร้านอาหาร ขายน้ำ ขายขนม
-                    อาหารตามสั่ง สะดวกสบายต่อคนให้เข้ามาเรียน</p>
-
-                <p><a href="https://youtu.be/3Z5ohzVy9jA?si=fEZm7QsnsLORqmjx" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">กดเพื่อดูคลิปวีดีโอ</a></p>
+                <img src="{{('assets/9.jpg')}}" alt="">
 
             </div>
-<div class="center">
+            <!-- Left-aligned text -->
+
+            <div class="text-left">
+                <h3>รายละเอียดเพิ่มเติม</h3>
+                <p>หน้าค่ายจะเป็นส่วนรับลองคนให้เข้ามาเรียน มีเก้าอี้ โต๊ะ น้ำเปล่ามีไว้บริการการเข้ามาเรียน</p>
+                <h3>คลิปสถานที่จริง</h3>
+                <a href="https://youtu.be/3Z5ohzVy9jA?si=unXQiyN6gXofSC7e" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">กดเพื่อดูคลิปวีดีโอ</a>
+            </div>
+
+            <div class="center">
                 <img src="{{('assets/1.jpg')}}" alt="">
-
                 <img src="{{('assets/18.jpg')}}" alt="">
-                <h5>โมเดลสถานที่</h5>
+                <h5>โมเดลท่ามวย</h5>
                 <h5>สแกน QR Code</h5>
-</div>
-</div>
-<h5><a href="place" class="hero-btn">กลับ</a></h5>
+            </div>
         </div>
-
-
-
+        <h5><a href="place" class="hero-btn">กลับ</a></h5>
+    </div>
 </section>
-
 <section class="contact-info">
     <div class="container">
-        <h2>ติดต่อเรา  </h2>
-        <p><strong>ที่อยู่:</strong> <a href="https://maps.app.goo.gl/nSyjQjgojQYG2BLo6">สนามมวยลานนา โฮมสเตย์&เรสเตอร์รอง ตำบล ควนมะพร้าว เมือง พัทลุง 93000</a></p>
+        <h2>ติดต่อเรา</h2>
+        <p><strong>ที่อยู่:</strong> <a href="https://maps.app.goo.gl/nSyjQjgojQYG2BLo6">สนามมวยลานนา โฮมสเตย์&เรสเตอร์รอง</a></p>
         <p><strong>โทรศัพท์:</strong> <a href="#">+684 247 9665</a></p>
-        <p><strong>Facebook</strong> <a href="https://www.facebook.com/profile.php?id=100063753060493">เพจ:ค่ายมวยลานนาวอเตอร์ไซด์</a></p>
-
+        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100063753060493">ค่ายมวยลานนาวอเตอร์ไซด์</a></p>
     </div>
 </section>
 </body>
