@@ -10,30 +10,60 @@
     @vite('resources/css/app.css')
     <style>
 
+
         .hero {
             text-align: justify;
+
+
+
         }
+        .box-item{
+           background-color: #ffffff;
+        }
+        .white-box .box-item {
+            display: flex;
+    flex-direction: row; /* จัดวางในแนวนอน */
+    justify-content: flex-start; /* จัดให้อยู่ทางซ้าย */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวดิ่ง */
+
+    padding: 20px;
+    text-align: left; /* จัดข้อความให้อยู่ทางซ้าย */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 200px; /* กำหนดความสูงขั้นต่ำ */
+    gap: 20px; /* เว้นช่องว่างระหว่างรูปภาพและเนื้อหา */
+        }
+
         .white-box p {
             text-align: center;
+
         }
         .header .navbar a:hover,
         .box-item .hero-btn:hover {
             color: #ffd700;
         }
         .white-box {
-        background-color: #7ba5e4;
-        padding: 20px;
-        margin: 50px auto;
-        width: 50%;
+        background-color: #ffffff; background-color: #7ba5e4;
+        padding: 30px;
+        margin: 100px auto;
+        width: 80%;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgb(255, 255, 255);
         display: flex;
         flex-direction: column; /* Stack text and images vertically */
         font-size: 1.5rem;
         }
+         .box-item .box img {
+            padding: 20px;
+            width: 30%;
+            display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
         .text-center p {
             margin: 3rem 0;
-            align-items: center;
+
             text-indent: 50px;
             font-size: 1rem;
         }
@@ -56,16 +86,48 @@
 }
 
 .white-space {
-    text-align: center;
+
     margin-bottom: 30px; /* Space between text and buttons */
+    font-size: 1.2 rem;
+    text-align: left;
 }
-        .white-space h5 {
-            white-space: pre;
-            text-align: center;
-        }
-        .white-space :left {
-            text-align: left;
-        }
+
+            .white-space h3 {
+    font-size: 1.75rem; /* ปรับขนาดฟอนต์ตามต้องการ */
+    font-weight: bold; /* กำหนดความหนาของตัวอักษร */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+    color: #333; /* สีตัวอักษร */
+}
+
+.white-space1 {
+    display: flex; /* ใช้ Flexbox สำหรับการจัดเรียง */
+    justify-content: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวตั้ง */
+    gap: 20px; /* เว้นระยะห่างระหว่างรูปภาพ */
+    margin: 20px 0; /* ระยะห่างด้านบนและด้านล่าง */
+}
+
+.white-space1 img {
+    width: 15%; /* ปรับขนาดของรูปภาพตามต้องการ */
+    margin: 8; /* ลบ margin เพื่อลดช่องว่าง */
+}
+
+
+
+.white-box p, .text-center p {
+    text-align: left; /* เปลี่ยนจาก center เป็น left */
+    margin: 3rem 0;
+    text-indent: 50px;
+    font-size: 1.7rem;
+}
+
+.hero, .white-space, .box-item, .text-center {
+    text-align: left; /* ให้ทุกอย่างจัดเรียงทางซ้าย */
+}
+
+
+
         .box-item {
             display: flex;
             align-items: center;
@@ -74,7 +136,7 @@
         }
         .box-item img {
             padding: 20px;
-            width: 30%;
+            width: 50%;
         }
         .text-center {
             flex: 1;
@@ -85,12 +147,17 @@
         .hero-btn, .blog-btn, .blod-title {
             display: inline-block;
             padding: 10px 20px;
+
             margin: 10px 0;
             text-decoration: none;
             border-radius: 5px;
             color: white; /* Text color */
             background-color: #c49564; /* Button background color */
             transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        .hero-btn {
+
+           align-items: center;
         }
 
         .hero-btn:hover, .blog-btn:hover, .blod-title:hover {
@@ -133,45 +200,74 @@
 
 <!-- New White Box Section -->
 <section class="white-box">
-    <div class="white-space">
+
         <div class="box-item">
-            <div class="white-space">
+
             <img src="{{('assets/11.jpg')}}" alt="">
-            <img src="{{('assets/12.jpg')}}" alt="">
-
-            </div>
             <!-- Center Text -->
+
             <div class="white-space">
 
-                <h3>ลักษณะ</h3>
-                <p>ป็นการใช้หมัดที่ถนัดมุ่งไปยังเป้าหมาย โดยอาศัยแรงจากหัวไหล่ ลำตัว และเท้ายันพื้น โดยน้ำหนักตัวอยู่ที่เท้าหน้า ใช้แรงส่งจากเท้าหลังและสะโพก หัวไหล่</p>
-                <h3>ประเภท</h3>
-                <p>ป็นการใช้หมัดที่ถนัดมุ่งไปยังเป้าหมาย โดยอาศัยแรงจากหัวไหล่ ลำตัว และเท้ายันพื้น โดยน้ำหนักตัวอยู่ที่เท้าหน้า ใช้แรงส่งจากเท้าหลังและสะโพก หัวไหล่</p>
-                <h3>เป้าหมาย</h3>
-                <p>ป็นการใช้หมัดที่ถนัดมุ่งไปยังเป้าหมาย โดยอาศัยแรงจากหัวไหล่ ลำตัว และเท้ายันพื้น โดยน้ำหนักตัวอยู่ที่เท้าหน้า ใช้แรงส่งจากเท้าหลังและสะโพก หัวไหล่</p>
-                <h3>ความรุนแรง</h3>
-                <p>ป็นการใช้หมัดที่ถนัดมุ่งไปยังเป้าหมาย โดยอาศัยแรงจากหัวไหล่ ลำตัว และเท้ายันพื้น โดยน้ำหนักตัวอยู่ที่เท้าหน้า ใช้แรงส่งจากเท้าหลังและสะโพก หัวไหล่</p>
 
-                <h3>ข้อมูลเพิ่มเติม</h3>
-                <p>ป็นการใช้หมัดที่ถนัดมุ่งไปยังเป้าหมาย โดยอาศัยแรงจากหัวไหล่ ลำตัว และเท้ายันพื้น โดยน้ำหนักตัวอยู่ที่เท้าหน้า ใช้แรงส่งจากเท้าหลังและสะโพก หัวไหล่</p>
+                <p>การใช้หมัด มวยไทยมีหลายหลายรูปแบบ เช่น หมัดชกนำ หมัดชกตาม เป็นต้น ซึ่งทั้งหมดสามารถประยุกต์ใช้ตามแต่ละสถานการณ์ที่เผชิญขณะชกกับคู่ต่อสู้ศิลปะการใช้หมัด ภายในเล่มจะนำเสนอ การใช้หมัดของมวยไทยหลากหลายรูปแบบ</p>
+                <h3>หมัดตรงชกนำ</h3>
+                <p>หมัดตรงชกนำหรือหมัดตรงหน้าใช้โจมตีเป้าหมายในระยะประชิด อาศัยการถ่ายน้ำหนักตัวจากเท้าหลังมายังเท้าหน้า ส่งแรงไปยังลำตัวถึงหัวไหล่ ไปยังหมัดหน้าเพื่อเพิ่มความรุนแรงของการปะทะ เมื่อชกไปแล้วน้ำหนักตัวของเราจะอยู่ที่เท้าหน้า</p>
+
+
+
             </div>
 
-                <h3>คลิปสถานที่จริง</h3>
-                <a href="https://youtu.be/rFb9GZy2xsc?si=V0JepoM6QjZoRM9G" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">กดเพื่อดูคลิปวีดีโอ</a></p>
-<div class="center">
-                <img src="{{('assets/4.jpg')}}" alt="">
-
-                <img src="{{('assets/18.jpg')}}" alt="">
-                <h5>โมเดลท่ามวย</h5>
-                <h5>สแกน QR Code</h5>
-</div>
-</div>
-<h5><a href="place" class="hero-btn">กลับ</a></h5>
         </div>
 
+<div class="box-item">
+<div class="white-space">
 
+
+
+                <h3>หมัดรงชกตาม</h3>
+                <p>เป็นการชกหมัดที่อยู่ด้านหลังของเราตรงไปยังเป้าหมาย อาศัยแรงส่งจากเท้ามายังลำตัวจนถึงหัวไหล่ส่งตรงไปที่หมัดเพื่อปะทะเป้าหมาย เมื่อชกไปแล้วไหล่ ลำตัวและเอวจะบิดคว่ำลง</p>
+
+
+
+            </div>
+            <img src="{{('assets/12.jpg')}}" alt="">
+            <!-- Center Text -->
+
+
+
+        </div>
+        <div class="box-item">
+
+            <img src="{{('assets/13.jpg')}}" alt="">
+            <!-- Center Text -->
+
+            <div class="white-space">
+
+
+
+               <p>รวมไปถึงสะโพกน้ำหนักตัวจะอยู่ที่เท้าหน้าโดยส่วนใหญ่หมัดตรงชกตามจะมีความหนักหน่วงและรุนแรงสร้างความเสียหายให้กับคู่ต่อสู้มากกว่าหมัดตรงชกนำ</p>
+
+
+
+
+
+</div>
 
 </section>
+
+<div class="white-space1">
+<img src="{{('assets/4.jpg')}}" alt="">
+<img src="{{('assets/q4.jpg')}}" alt="">
+
+</div>
+<div class="white-space1">
+<a href="boxing" class="hero-btn">กลับ</a>
+</div>
+<div class="white-space1">
+<a href="https://youtu.be/h9_GSLd3SMc?si=wRxfJCCIswHCxEcd" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">ข้อมูลเพิ่มเติม</a>
+<a href="https://youtu.be/rFb9GZy2xsc" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">คลิปท่าหมัดตรง </a>
+
+</div>
 
 <section class="contact-info">
     <div class="container">

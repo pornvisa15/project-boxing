@@ -37,8 +37,8 @@ Route::get('boxing3', function () {
 Route::get('boxing4', function () {
     return view('boxing4');
 });
-Route::get('boxin51', function () {
-    return view('boxing6');
+Route::get('boxing5', function () {
+    return view('boxing5');
 });
 Route::get('course', function () {
     return view('course');
