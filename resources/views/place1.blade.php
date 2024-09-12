@@ -56,6 +56,9 @@
         .white-space {
             text-align: center;
             margin-bottom: 30px;
+            background-color: #ffffff;
+            margin: 10px auto;
+            border-radius: 10px;
         }
         .white-space h5 {
             white-space: pre;
@@ -70,6 +73,8 @@
         .box-item img {
             padding: 20px;
             width: 30%;
+
+            
         }
         /* Button Styles */
         .hero-btn, .blog-btn, .blod-title {
@@ -89,6 +94,52 @@
         .navbar a {
             text-decoration: none;
         }
+
+
+        .white-box {
+    width: 100%;
+    padding: 20px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center; /* จัดให้องค์ประกอบอยู่ในแนวตั้งตรงกลาง */
+    justify-content: space-between; /* เว้นระยะห่างระหว่างรูปภาพกับข้อความ */
+    gap: 20px; /* ระยะห่างระหว่างรูปภาพและข้อความ */
+}
+
+.box-item {
+    flex: 1; /* รูปภาพครอบครองพื้นที่ครึ่งหนึ่งของหน้าจอ */
+    max-width: 50%;
+}
+
+.box-item img {
+    width: 100%; /* ให้รูปภาพขยายเต็ม container */
+    height: auto; /* รักษาสัดส่วนของภาพ */
+}
+
+.text-container {
+    flex: 1; /* ข้อความครอบครองพื้นที่ครึ่งหนึ่งของหน้าจอ */
+    padding-left: 20px; /* เพิ่มระยะห่างทางซ้ายของข้อความ */
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
     </style>
 </head>
 <body>
@@ -120,33 +171,34 @@
     </div>
 </section>
 
+
+
+
+
+
 <!-- New White Box Section -->
 <section class="white-box">
     <div class="white-space">
+    <div class="content-container">
         <div class="box-item">
-            <div class="white-space">
-                <img src="{{('assets/9.jpg')}}" alt="">
-
-            </div>
-            <!-- Left-aligned text -->
-
-            <div class="text-left">
-                <h3>รายละเอียดเพิ่มเติม</h3>
-                <p>หน้าค่ายจะเป็นส่วนรับลองคนให้เข้ามาเรียน มีเก้าอี้ โต๊ะ น้ำเปล่ามีไว้บริการการเข้ามาเรียน</p>
-                <h3>คลิปสถานที่จริง</h3>
-                <a href="https://youtu.be/3Z5ohzVy9jA?si=unXQiyN6gXofSC7e" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">กดเพื่อดูคลิปวีดีโอ</a>
-            </div>
-
-            <div class="center">
-                <img src="{{('assets/1.jpg')}}" alt="">
-                <img src="{{('assets/18.jpg')}}" alt="">
-                <h5>โมเดลท่ามวย</h5>
-                <h5>สแกน QR Code</h5>
-            </div>
+            <img src="{{('assets/9.jpg')}}" alt="">
         </div>
-        <h5><a href="place" class="hero-btn">กลับ</a></h5>
+        
+        <div class="text-container">
+            <p>หน้าค่ายมวย "ลานนาวอเตอร์ไซด์" จะมีป้ายค่ายขนาดใหญ่ที่โดดเด่นเพื่อให้ผู้มาเยี่ยมชมสังเกตเห็นได้ง่าย ภายในบริเวณหน้าค่ายยังมีร้านอาหารตามสั่ง</p>
+            <h5><a href="place" class="hero-btn">กลับ</a></h5>
+        </div>
+    </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
 <section class="contact-info">
     <div class="container">
         <h2>ติดต่อเรา</h2>
