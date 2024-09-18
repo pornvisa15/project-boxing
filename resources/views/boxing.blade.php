@@ -10,51 +10,77 @@
     @vite('resources/css/app.css')
     <style>
         /* CSS Styles */
-        .hero {
-            text-align: justify;
-        }
+
+        .hero{         .
+    background-color: #7ba5e4;
+    text-align: justify;
+}
+
         .white-box {
-            background-color: #7ba5e4;
+            background-color:#7ba5e4;
             padding: 20px;
             margin: 50px auto;
             width: 50%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .box-item {
-            display: flex; /* จัดเลย์เอาต์ด้วย Flexbox */
+            display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            font-size: 1.5rem;
+        }
+
+        .white-box .box-item {
             background-color: #ffffff;
-        }
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
 
+        }
+        .box-item h1{
+            font-size: 18px; 
+            font-weight: bold; 
+            margin: 0; 
+            /* text-indent: 50px;  */
+            text-align: center; 
+            color: #000000; 
+        }
+        .box-item p {
+            /* text-indent: 50px; การย่อหน้าเริ่มต้นที่ 50px */
+            text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+            overflow: hidden; /* ซ่อนข้อความที่เกินออกมา */
+            /* max-height: 100px; จำกัดความสูงของพื้นที่ที่ข้อความแสดง */
+            line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
+            position: relative; /* ใช้สำหรับการจัดการความสูง */
+        }
         .box-item img {
-            width: 30%; /* ปรับขนาดรูปภาพ */
-            height: auto;
+            padding: 20px;
+            width: 60%;
         }
-        .box-item h4 {
-            flex: 1; /* ให้เนื้อหาขยายพื้นที่มากกว่า */
-            text-align: left;
-        }
+        .header .navbar a:hover,
+        .box-item .hero-btn:hover {
+            color: #ffd700;
 
+        }
         /* Button Styles */
-        .hero-btn {
+        .hero-btn, .blog-btn, .blod-title {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px 0;
             text-decoration: none;
             border-radius: 5px;
-            color: white; /* สีข้อความ */
-            background-color: #c49564; /* สีพื้นหลังปุ่ม */
-            transition: background-color 0.3s ease; /* เอฟเฟกต์เมื่อโฮเวอร์ */
-        }
-        .hero-btn:hover {
-            background-color: #8f6d4a; /* เปลี่ยนสีปุ่มเมื่อโฮเวอร์ */
+            color: white; /* Text color */
+            background-color: #c49564; /* Button background color */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
         }
 
+        .hero-btn:hover, .blog-btn:hover, .blod-title:hover {
+            background-color: #8f6d4a; /* Darker shade on hover */
+        }
         .navbar a {
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -89,64 +115,75 @@
 <!-- New White Box Section -->
 <section class="white-box">
     <div class="box-item">
+        <h1>ท่าหมัดตรง</h1>
+        
         <img src="{{('assets/4.jpg')}}" alt="">
-        <div>
-            <h3>ท่าหมัดตรง</h3>
-            <h4>การใช้หมัด มวยไทยมีหลายหลายรูปแบบ เช่น หมัดชกนำ หมัดชกตาม เป็นต้น ซึ่งทั้งหมดสามารถประยุกต์ใช้ตามแต่ละสถานการณ์ที่เผชิญขณะชกกับคู่ต่อสู้ ศิลปะการใช้หมัด...</h4>
-            <p><a href="boxing1" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
-        </div>
-</div>
+        <p>หมัดเป็นอาวุธสำคัญในมวยไทยที่ใช้บ่อยในการต่อสู้มีหลากหลายรูป</p>
+        <a href="boxing1" class="hero-btn">ข้อมูลเพิมเติม</a>
+       
+        <!--<h4>กดเพื่อดู QR Code</h4> --> 
+    </div>
 </section>
 
 <section class="white-box">
     <div class="box-item">
+        <h1>ท่าหมัดเสย</h1>
+        
         <img src="{{('assets/5.jpg')}}" alt="">
-        <div>
-            <h3>ท่าหมัดเสย</h3>
-            <h4>หมัดเสยหรือหมัดสอยดาว หมัดที่ชกโดยข้อศอก เกร็งข้อศอกและหงายหมัดขึ้นวิถีของหมัดจะออกจากด้านล่างสู่ด้านบน ทำมุมฉากกับพื้นใช้ได้ดีเมื่อเป้าหมายอยู่ใกล้ตัว...</h4>
-            <p><a href="boxing2" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
-        </div>
+        <p>หมัดเสยเป็นหมัดที่โจมตีจากล่างขึ้นบน โดยมักเล็งไปที่คางหรือปลายคางของคู่ต่อสู้ เพื่อสร้างแรงกระแทกที่รุนแรงและทำให้เสียสมดุล</p>
+        <a href="boxing2" class="hero-btn">ข้อมูลเพิมเติม</a>
+       
+        <!--<h4>กดเพื่อดู QR Code</h4> --> 
+    </div>
+</section>
+
+
+<section class="white-box">
+    <div class="box-item">
+        <h1>ท่าเข่าเฉียง</h1>
+            
+            <img src="{{('assets/6.jpg')}}" alt="">
+            <p>เข่าเฉียงเป็นการต่อสู้ระยะประชิดและการจู่โจมใต้ การโจมตีที่บริเวณล่างของคางหรือใบหน้าอาจทำให้คู่ต่อสู้อาจหมดสติ</p>
+            <a href="boxing3" class="hero-btn">ข้อมูลเพิมเติม</a>
+        
+        <!-- <h4>กดเพื่อดู QR Code</h4> -->
     </div>
 </section>
 
 <section class="white-box">
     <div class="box-item">
-        <img src="{{('assets/6.jpg')}}" alt="">
-        <div>
-            <h3>ท่าเข่าเฉียง</h3>
-            <h4>ข่าเฉียงคือการตีเข่าที่มีวิถีการตีเฉียงขึ้นจากจุดตั้งต้นของเข่าไปยังตำแหน่งที่เข่าปะทะเป้าหมาย ถ้าตีเข่าซ้าย จะเฉียงมากระทบเป้าด้านขวา ตีเข่าขวาจะเฉียงมากระทบเป้าด้านซ้าย ถ้าคู่ชกเข้ามาตรง ๆ เข่าเฉียงจะถูกเป้าที่โคนขาและลำตัวด้านข้าง...</h4>
-            <p><a href="boxing3" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
-        </div>
-    </div>
-</section>
-<section class="white-box">
-    <div class="box-item">
+        <h1>ท่าศอกงัด</h1>
+        
         <img src="{{('assets/7.jpg')}}" alt="">
-        <div>
-            <h3>ท่าศอกงัด</h3>
-            <h4>ศอกงัด คือ เป็นศอก ที่ใช้ตีเสยขึ้น โดยการงัดขึ้นตรง ๆ หรือบางครั้ง อาจเฉียงเล็กน้อย การงัดให้ย่อตัวลง เพื่อที่จะ ใช้แรงส่งจากเท้า ใช้เมื่อคู่ต่อสู้ จะเข้ามาจับคอตีเข่า ให้ใช้ศอกงัด เข้าที่เป้าหมาย คือ ปลายคางของ คู่ต่อสู้...</h4>
-            <p><a href="boxing4" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
-        </div>
-    </div>
-</section>
-<section class="white-box">
-    <div class="box-item">
-        <img src="{{('assets/8.jpg')}}" alt="">
-        <div>
-            <h3>เตะตัด</h3>
-            <h4>การเตะตัด ลักษณะการเตะตัด เป็นการเตะให้เท้าขนานไปกับพื้นโดยทั่วไปจะใช้เท้าหลังเป็นเท้าเตะเหวี่ยงขาทั้งท่อนขึ้นและให้งอเข่ามากกว่าเตะเฉียงเล็กน้อยบิดให้สันแข้งเข้าหาเป้าหมายถ้าจะให้รุนแรงจะต้องสืบเท้าเข้าไปก่อนแล้วเหวี่ยงเท้าโดยใช้แรงจากสะโพกให้มาก เมื่อเตะพลาดเป้าหมาย ห้ามหมุนตัวเพื่อจะเปิดโอกาสให้คู่ต่อสู้กระท าการโต้ตอบ...</h4>
-            <p><a href="boxing5" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
-        </div>
+        <p>ศอกงัดใช้โจมตีที่คางหรือใบหน้าเพื่อทำให้คู่ต่อสู้เสียสมดุลและหมดสติได้</p>
+        <a href="boxing4" class="hero-btn">ข้อมูลเพิมเติม</a>
+        
+        <!-- <h4>กดเพื่อดู QR Code</h4> -->
     </div>
 </section>
 
-<!-- Footer -->
+<section class="white-box">
+    <div class="box-item">
+    
+    <h1>ท่าแตะตัด</h1>    
+    
+    <img src="{{('assets/8.jpg')}}" alt="">
+       
+        
+        <p>แตะตัด ใช้โจมตีที่ขาด้านนอกหรือเข่าของคู่ต่อสู้เพื่อทำลายการทรงตัวและลดความสามารถในการเคลื่อนไหว</p>
+        <a href="boxing5" class="hero-btn">ข้อมูลเพิมเติม</a>
+        <!-- <h4>กดเพื่อดู QR Code</h4> -->
+    </div>
+</section>
+
+
 <section class="contact-info">
     <div class="container">
-        <h2>ติดต่อเรา</h2>
+        <h2>ติดต่อเรา  </h2>
         <p><strong>ที่อยู่:</strong> <a href="https://maps.app.goo.gl/nSyjQjgojQYG2BLo6">สนามมวยลานนา โฮมสเตย์&เรสเตอร์รอง ตำบล ควนมะพร้าว เมือง พัทลุง 93000</a></p>
         <p><strong>โทรศัพท์:</strong> <a href="#">+684 247 9665</a></p>
-        <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100063753060493">ค่ายมวยลานนาวอเตอร์ไซด์</a></p>
+        <p><strong>Facebook</strong> <a href="https://www.facebook.com/profile.php?id=100063753060493">เพจ:ค่ายมวยลานนาวอเตอร์ไซด์</a></p>
+
     </div>
 </section>
 </body>
