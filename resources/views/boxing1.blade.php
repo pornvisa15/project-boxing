@@ -253,7 +253,7 @@
         <a href="boxing">ท่ามวย</a>
         <a href="course">โปรแกรมการสอน</a>
         <a href="teacher">ทีมงาน</a>
-        <a href="#ติดต่อเรา">ติดต่อเรา</a>
+        <a href="contact">ติดต่อเรา</a>
         <a href="loginpages">เข้าสู่ระบบ</a>
     </nav>
 </header>
