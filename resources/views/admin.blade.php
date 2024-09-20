@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,7 +118,8 @@
         }
 
         .hero-btn i {
-            font-size: 18px; /* Adjust size as needed */
+            font-size: 18px;
+            /* Adjust size as needed */
         }
 
         .hero-btn:hover {
@@ -131,7 +133,8 @@
             margin: 30px 0;
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 12px 15px;
             border: 1px solid #ddd;
             text-align: left;
@@ -169,11 +172,13 @@
         }
     </style>
 </head>
+
 <body>
+
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="{{('assets/17.jpg')}}" alt="Logo">
+                <img src="{{ 'assets/17.jpg' }}" alt="Logo">
             </a>
         </div>
         <ul class="navbar">
@@ -206,39 +211,31 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Program 1</td>
-                        <td>Basic Muay Thai techniques</td>
-                        <td>5 hours</td>
-                        <td>Details</td>
-                        <td>$100</td>
-                        <td>Teacher A</td>
-                        <td>2024-01-01</td>
-                        <td>2024-02-01</td>
-                        <td> <img src="{{('assets/18.jpg')}}" alt="Image" width="50"></td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
+                        @foreach ($courses as $course)
                     <tr>
-                        <td>Program 2</td>
-                        <td>Advanced Muay Thai techniques</td>
-                        <td>10 hours</td>
-                        <td>Details</td>
-                        <td>$200</td>
-                        <td>Teacher B</td>
-                        <td>2024-03-01</td>
-                        <td>2024-04-01</td>
-                        <td> <img src="{{('assets/18.jpg')}}" alt="Image" width="50"></td>
+                        <td></td>
+                        <td>{{ $course->course_name }}</td>
+                        <td>{{ $course->course_category }}</td>
+                        <td>{{ $course->course_duration }}</td>
+                        <td>{{ $course->course_other }}</td>
+                        <td>{{ $course->course_price }}</td>
+                        <td>{{ $course->course_teacher }}</td>
+                        <td>{{ $course->course_begin }}</td>
+                        <td>{{ $course->course_stop }}</td>
                         <td class="action-icons">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
                         </td>
+
                     </tr>
+                    @endforeach
+                    </tr>
+
                 </tbody>
             </table>
             <p><a href="add_course" class="hero-btn">เพิ่ม</a></p>
         </div>
     </div>
 </body>
+
 </html>
