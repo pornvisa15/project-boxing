@@ -213,7 +213,7 @@
                     <tr>
                         @foreach ($courses as $course)
                     <tr>
-                        <td></td>
+
                         <td>{{ $course->course_name }}</td>
                         <td>{{ $course->course_category }}</td>
                         <td>{{ $course->course_duration }}</td>
@@ -222,6 +222,7 @@
                         <td>{{ $course->course_teacher }}</td>
                         <td>{{ $course->course_begin }}</td>
                         <td>{{ $course->course_stop }}</td>
+                        <td> <img src="" alt="images"></td>
                         <td class="action-icons">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>

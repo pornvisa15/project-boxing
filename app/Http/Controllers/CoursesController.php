@@ -48,28 +48,28 @@ class CoursesController extends Controller
      {
          // ตรวจสอบข้อมูลที่ส่งมา
 
-         dd( $request);
+
          $request->validate([
-             'course_name' => 'required|string|max:255',
-             'course_category' => 'required|string',
-             'course_duration' => 'required|integer',
-             'course_details' => 'required|string',
-             'course_price' => 'required|numeric',
-             'course_teacher' => 'required|string|max:255',
-             'course_begin' => 'required|date',
-             'course_stop' => 'required|date|after_or_equal:course_begin',
-             'course_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-         ]);
+            'course_name' => 'required|string|max:255',
+            'course_category' => 'required|string',
+            'course_duration' => 'required|integer',
+            'course_details' => 'required|string',
+            'course_price' => 'required|numeric',
+            'course_teacher' => 'required|string|max:255',
+            'course_begin' => 'required|date',
+            'course_stop' => 'required|date|after_or_equal:course_begin',
+            'course_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
          // สร้างวัตถุใหม่ของ Course
-         $course = new Courses($request->all());
-dd( $course);
-         // ตรวจสอบและเก็บไฟล์รูปภาพ
-         if ($request->hasFile('course_image')) {
-             $imagePath = $request->file('course_image')->store('images', 'public');
-             $course->course_image = $imagePath;
-         }
 
+
+         // ตรวจสอบและเก็บไฟล์รูปภาพ
+        //  if ($request->hasFile('course_image')) {
+        //      $imagePath = $request->file('course_image')->store('images', 'public');
+        //      $course->course_image = $imagePath;
+        //  }
+    $course = new Courses( $request->all());
          // บันทึกข้อมูลลงฐานข้อมูล
          $course->save();
 

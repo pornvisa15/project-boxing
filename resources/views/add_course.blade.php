@@ -155,11 +155,11 @@
                 @csrf
                 <div class="mb-3">
                     <label for="course_name" class="form-label">ชื่อโปรแกรมการสอน</label>
-                    <input type="text" class="form-control" id="course_name" name="course_name" required>
+                    <input type="text" class="form-control" id="course_name" name="course_name">
                 </div>
                 <div class="mb-3">
                     <label for="course_category" class="form-label">ประเภทโปรแกรมการสอน</label>
-                    <select class="form-select" id="course_category" name="course_category" required>
+                    <select class="form-select" id="course_category" name="course_category">
                         <option value="" disabled selected>กรุณาเลือกประเภท</option>
                         <option value="คอร์สมวยไทยสากล">คอร์สมวยไทยสากล</option>
                         <option value="คอร์สมวยไทยลดน้ำหนัก">คอร์สมวยไทยลดน้ำหนัก</option>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="course_duration" class="form-label">ชั่วโมงเรียน</label>
-                    <select class="form-select" id="course_duration" name="course_duration" required>
+                    <select class="form-select" id="course_duration" name="course_duration">
                         <option value="" disabled selected>กรุณาเลือกชั่วโมงเรียน</option>
                         <option value="1">1 ชั่วโมง</option>
                         <option value="2">2 ชั่วโมง</option>
@@ -177,23 +177,23 @@
                 </div>
                 <div class="mb-3">
                     <label for="course_details" class="form-label">รายละเอียดเพิ่มเติม</label>
-                    <textarea class="form-control" id="course_details" name="course_details" rows="4" required></textarea>
+                    <textarea class="form-control" id="course_details" name="course_details" rows="4"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="course_price" class="form-label">ราคา</label>
-                    <input type="number" class="form-control" id="course_price" name="course_price" required>
+                    <input type="number" class="form-control" id="course_price" name="course_price">
                 </div>
                 <div class="mb-3">
                     <label for="course_teacher" class="form-label">ครูผู้สอน</label>
-                    <input type="text" class="form-control" id="course_teacher" name="course_teacher" required>
+                    <input type="text" class="form-control" id="course_teacher" name="course_teacher">
                 </div>
                 <div class="mb-3">
                     <label for="course_begin" class="form-label">วันที่เริ่ม</label>
-                    <input type="date" class="form-control" id="course_begin" name="course_begin" required>
+                    <input type="date" class="form-control" id="course_begin" name="course_begin">
                 </div>
                 <div class="mb-3">
                     <label for="course_stop" class="form-label">วันที่จบ</label>
-                    <input type="date" class="form-control" id="course_stop" name="course_stop" required>
+                    <input type="date" class="form-control" id="course_stop" name="course_stop">
                 </div>
                 <div class="mb-3">
                     <label for="course_image" class="form-label">ไฟล์รูปภาพ</label>

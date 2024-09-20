@@ -13,6 +13,8 @@ class Courses extends Model
      *
      * @var array<int, string>
      */
+    public $timestamps = false;
+
     protected $fillable = [
         'course_name',
         'course_category',
