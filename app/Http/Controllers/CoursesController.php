@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -15,13 +15,21 @@ class CoursesController extends Controller
         return view('login');
     }
 
+    public function index2()
+    {
+        return view('admin');
+    }
+
+
     /**
      * Display a listing of the courses.
      */
     public function listCourses()
     {
-        $courses = Course::all();
-        return view('admin', compact('courses' ->$contents));
+        $courses = Courses::all();
+
+
+        return view('admin', compact('courses'));
     }
 
     /**
@@ -35,31 +43,39 @@ class CoursesController extends Controller
     /**
      * Store a newly created course in the database.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'course_name' => 'required',
-            'course_category' => 'required',
-            'course_duration' => 'required|integer',
-            'course_details' => 'required',
-            'course_price' => 'required|numeric',
-            'course_teacher' => 'required',
-            'course_begin' => 'required|date',
-            'course_stop' => 'required|date',
-            'course_image' => 'image|nullable',
-        ]);
 
-        $course = new Course($request->all());
+     public function store(Request $request)
+     {
+         // ตรวจสอบข้อมูลที่ส่งมา
 
-        if ($request->hasFile('course_image')) {
-            $imagePath = $request->file('course_image')->store('images', 'public');
-            $course->course_image = $imagePath;
-        }
+         dd( $request);
+         $request->validate([
+             'course_name' => 'required|string|max:255',
+             'course_category' => 'required|string',
+             'course_duration' => 'required|integer',
+             'course_details' => 'required|string',
+             'course_price' => 'required|numeric',
+             'course_teacher' => 'required|string|max:255',
+             'course_begin' => 'required|date',
+             'course_stop' => 'required|date|after_or_equal:course_begin',
+             'course_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+         ]);
 
-        $course->save();
+         // สร้างวัตถุใหม่ของ Course
+         $course = new Courses($request->all());
+dd( $course);
+         // ตรวจสอบและเก็บไฟล์รูปภาพ
+         if ($request->hasFile('course_image')) {
+             $imagePath = $request->file('course_image')->store('images', 'public');
+             $course->course_image = $imagePath;
+         }
 
-        return redirect()->route('courses.list')->with('success', 'Course added successfully.');
-    }
+         // บันทึกข้อมูลลงฐานข้อมูล
+         $course->save();
+
+         // เปลี่ยนเส้นทางกลับไปยังหน้าที่ต้องการพร้อมกับข้อความสำเร็จ
+         return redirect()->route('courses.list')->with('success', 'Course added successfully.');
+     }
 
     /**
      * Show the form for editing the specified course.

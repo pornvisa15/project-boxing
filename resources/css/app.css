@@ -1,55 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
-*{
+* {
     font-family: 'Roboto', sans-serif;
-    margin: 0 ; padding: 0;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
 
 }
+
 body {
-    background-color: rgb(255, 255, 255); /* Set background color to black */
+    background-color: rgb(255, 255, 255);
+    /* Set background color to black */
 
 }
-html{
+
+html {
     font-size: 62.5%;
     scroll-padding-top: 9rem;
 
 }
 
-.header{
-    background-color:#7ba5e4;
+.header {
+    background-color: #7ba5e4;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 20%;
-    border-bottom:  var(--border);
+    border-bottom: var(--border);
     position: fixed;
-    top: 0; left: 0;right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
-.header .logo img{
+
+.header .logo img {
     height: 9rem;
 
 }
+
 .header .navbar a {
-    margin: 0 2rem;
+    margin: 0 1rem;
     font-size: 1.7rem;
     color: rgb(0, 0, 0);
 
 }
 
-.hero img{
+
+.hero img {
     width: 100%;
 }
-.hero{
+
+.hero {
     background-color: #7ba5e4;
 
 
-  text-align: justify;
+    text-align: justify;
 }
-.hero-con{
+
+.hero-con {
     display: flex;
 
 }
@@ -61,7 +72,7 @@ html{
 
 }
 
-.hero-info h3{
+.hero-info h3 {
     margin: 2rem 0;
     font-size: 3rem;
     text-align: center;
@@ -69,7 +80,7 @@ html{
 
 }
 
-.hero-info p{
+.hero-info p {
     margin: 3rem 0;
     text-align: center;
     text-indent: 50px;
@@ -83,27 +94,28 @@ html{
     margin-top: 50px;
     border-top: 1px solid #ddd;
     text-align: center;
-  }
+}
 
-  .contact-info h2 {
+.contact-info h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-  }
+}
 
-  .contact-info p {
+.contact-info p {
     margin: 5px 0;
     font-size: 1.2rem;
-  }
+}
 
-  .contact-info a {
+.contact-info a {
     color: #007bff;
     text-decoration: none;
-  }
+}
 
-  .contact-info a:hover {
+.contact-info a:hover {
     color: #0056b3;
-  }
-  .sidebar {
+}
+
+.sidebar {
     width: 200px;
     background: #4a658e;
     color: #fff;
@@ -116,7 +128,68 @@ html{
 
 a {
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
+}
+
+/* Style the dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* margin-bottom: 0.5rem; */
+
+}
+
+/* Style the dropdown button (the link for "สถานที่") */
+.dropbtn {
+    text-decoration: none;
+    display: block;
+    color: black;
+    line-height: 8rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 0;
+    left: 50%;
+    /* กำหนดตำแหน่งจากซ้าย 50% */
+    transform: translateX(-50%);
+    /* เลื่อนไปทางซ้าย 50% ของความกว้างเพื่อให้กลาง */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 12px;
+    /* ลด padding เพื่อให้ตัวอักษรและพื้นที่ภายในเล็กลง */
+    font-size: 10rem;
+    /* ลดขนาดตัวอักษร */
+    text-decoration: none;
+    display: block;
+    line-height: 1.7rem;
+    /* ปรับระยะห่างของบรรทัดให้เล็กลง */
 }
 
 
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+.dropdown-content {
+    border-radius: 8px;
+    /* ทำให้มุมมน */
+}

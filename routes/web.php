@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthControllre;
-
+use App\Http\Controllers\CoursesController;
 Route::get('welcome', function () {
     return view('welcome');
 });
@@ -78,9 +78,9 @@ Route::get('edit_teacher', function () {
             return view('edit_teacher');
         });
 
-Route::get('admin', function () {
-    return view('admin');
-});
+// Route::get('admin', function () {
+//     return view('admin');
+// });
 
 Route::get('admin_course1', function () {
     return view('admin_course1');
@@ -95,10 +95,11 @@ Route::get('/loginpages', [AuthControllre::class, 'index'])->name('loginpages');
 Route::post('/login', [AuthControllre::class, 'login'])->name('login');
 Route::post('/logout', [AuthControllre::class, 'logout'])->middleware('auth'); // ออกจากระบบต้องเข้าสู่ระบบแล้วก่อน
 
-use App\Http\Controllers\CoursesController;
+
 
 // Route::get('/login', [CoursesController::class, 'index'])->name('login');
-Route::get('courses', [CoursesController::class, 'listCourses'])->name('courses.list');
+Route::get('admin', [CoursesController::class, 'listCourses'])->name('courses.list');
+// Route::get('admin', [CoursesController::class, 'listCourses'])->name('courses.list');
 Route::get('create', [CoursesController::class, 'create'])->name('courses.create');
 Route::post('courses', [CoursesController::class, 'store'])->name('courses.store');
 Route::get('courses/{id}/edit', [CoursesController::class, 'edit'])->name('courses.edit');
