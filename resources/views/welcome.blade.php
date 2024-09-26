@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>หน้าแรก</title>
+<<<<<<< HEAD
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   @vite('resources/css/app.css')
+   <style>
+      .hero{
+    background-color: #7ba5e4;
+    text-align: justify;
+
+        }
+    .white-box {
+        background-color: #7ba5e4; /* สีพื้นหลังของ white-box */
+        padding: 80px; /* ระยะห่างภายใน */
+        margin: 50px auto; /* ระยะห่างด้านบนและด้านล่าง, จัดตรงกลางในแนวนอน */
+        width: 60%; /* ความกว้าง */
+        border-radius: 10px; /* มุมโค้ง */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+        display: flex; /* ใช้ Flexbox */
+        flex-direction: column; /* จัดเนื้อหาในแนวตั้ง */
+        align-items: center; จัดให้อยู่ตรงกลางในแนวนอน
+        font-size: 1.7rem; /* ขนาดฟอนต์ */
+    }
+
+    .header .navbar a:hover,
+=======
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -35,6 +60,7 @@
         }
 
         .header .navbar a:hover,
+>>>>>>> beeaaa8f817801c3ceb2e512188da0ed6fda54fc
         .box-item .hero-btn:hover {
             color: #ffd700;
         }
@@ -48,7 +74,11 @@
         }
 
 
+<<<<<<< HEAD
+    .navbar a {
+=======
         .navbar a {
+>>>>>>> beeaaa8f817801c3ceb2e512188da0ed6fda54fc
             text-decoration: none;
             color: inherit;
         }
@@ -62,6 +92,26 @@
 
 
 
+<<<<<<< HEAD
+    .white-space {
+        display: flex; /* ใช้ Flexbox */
+        flex-direction: column; /* จัดเนื้อหาในแนวตั้ง */
+        align-items: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+        /* text-align: center; จัดข้อความให้อยู่ตรงกลาง */
+        background-color: white; /* สีพื้นหลังของ white-space */
+        padding: 50px; /* เพิ่มระยะห่างภายใน */
+        border-radius: 5px; /* มุมโค้ง */
+        max-width: 800px; /* ความกว้างสูงสุด */
+        text-indent: 40px;
+    }
+    .white-space h1 {
+    margin-top: 0.5px; /* เพิ่มระยะห่างด้านบนของข้อความ */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่างของข้อความ */
+    font-size: 30px; /* ขนาดตัวอักษร */
+    line-height: 1.5;
+    font-weight: bold;/* ระยะห่างระหว่างบรรทัด */
+    }
+=======
         .white-space {
             display: flex;
             /* ใช้ Flexbox */
@@ -80,6 +130,7 @@
             /* ความกว้างสูงสุด */
             text-indent: 40px;
         }
+>>>>>>> beeaaa8f817801c3ceb2e512188da0ed6fda54fc
 
         .white-space h1 {
             margin-top: 0.5px;
@@ -219,6 +270,20 @@
 
 
 
+<<<<<<< HEAD
+<section class="white-box">
+    <div class="white-space">
+        <h1>ค่ายมวยลานนาวอเตอร์ไซด์</h1>
+        <p>ค่ายมวยลานนาวอเตอร์ไซด์พัทลุงก่อตั้งขึ้นในปี 2014 โดยมีวัตถุประสงค์หลักในการส่งเสริมและพัฒนามวยไทยในจังหวัดพัทลุง ค่ายมวยแห่งนี้เป็นศูนย์ฝึกซ้อมที่มีความเชี่ยวชาญในการพัฒนาทักษะของนักมวยไทย โดยเฉพาะนักมวยที่มุ่งหวังในการพัฒนาทักษะและเข้าร่วมการแข่งขัน</p>
+        <img src="{{('assets/37.jpg')}}" alt="">
+        <p>ต้นกำเนิดของค่ายมวยลานนาวอเตอร์ไซด์เริ่มต้นจากนายสุวิชัย แซ่ตั้น มีความสนใจและชื่นชอบในกีฬามวยไทย นายสุวิชัยได้เริ่มต้นฝึกซ้อมมวยให้กับลูกชายสองคนจนประสบความสำเร็จในการแข่งขันมวยไทย ความสำเร็จนี้ได้กระตุ้นให้มีการฝึกซ้อมต่อเนื่องและดึงดูดความสนใจจากชุมชนท้องถิ่นที่สนใจเข้าร่วมการฝึกซ้อม ค่ายมวยเริ่มได้รับความนิยมในระดับท้องถิ่นและได้มีการเปลี่ยนชื่อจาก "ค่ายมวย ช.ชัยชนะ" เป็น "ลานนาวอเตอร์ไซด์" เพื่อสะท้อนถึงการพัฒนาและการขยายตัวของค่ายมวยอย่างต่อเนื่อง</p>
+        <img src="{{('assets/38.jpg')}}" alt="">
+        <p>ปัจจุบัน ค่ายมวยลานนาวอเตอร์ไซด์ได้พัฒนาและเติบโตอย่างต่อเนื่อง โดยมีนักกีฬาที่มีชื่อเสียงหลายท่าน เช่น เพชรยอดคง, เพชรน้ำหนึ่ง, ศิลาเงิน และพลังทรัพย์ ค่ายมวยประสบความสำเร็จในการแข่งขัน โดยเฉพาะศิลาเงินลานนาวอเตอร์ไซด์ที่ได้รับตำแหน่งแชมเปี้ยนแห่งประเภทไทย ที่สนามเวทียามอ้อมน้อย รุ่น 30 ปอนด์ </p>
+        <img src="{{('assets/39.jfif')}}" alt="">
+        <p>ที่นอกจากการฝึกซ้อมและการแข่งขัน ค่ายมวยลานนาวอเตอร์ไซด์พัทลุงยังมีบทบาทสำคัญในการเสริมสร้างชุมชนและส่งเสริมสุขภาพในท้องถิ่น โดยการเปิดโอกาสให้ผู้สนใจเข้าร่วมการฝึกซ้อมมวยและการออกกำลังกาย ซึ่งช่วยส่งเสริมสุขภาพดีและการออกกำลังกายในชุมชน ค่ายมวยลานนาวอเตอร์ไซด์พัทลุงจึงเป็นศูนย์ฝึกซ้อมที่มีความสำคัญในวงการมวยไทย โดยเน้นการพัฒนาทักษะของนักมวยและการส่งเสริมการมีสุขภาพดีในชุมชน</p>
+    </div>
+</section>
+=======
     <section class="white-box">
         <div class="white-space">
             <h1>ประวัติค่ายมวยลานนาวอเตอร์ไซด์</h1>
@@ -246,6 +311,7 @@
                 โดยเน้นการพัฒนาทักษะของนักมวยและการส่งเสริมการมีสุขภาพดีในชุมชน</p>
         </div>
     </section>
+>>>>>>> beeaaa8f817801c3ceb2e512188da0ed6fda54fc
 
 
 
