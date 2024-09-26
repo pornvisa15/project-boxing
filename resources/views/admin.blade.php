@@ -69,6 +69,7 @@
             border-radius: 5px;
         }
 
+
         .main-content {
             margin-left: 200px;
             padding: 50px 20px;
@@ -182,9 +183,15 @@
             </a>
         </div>
         <ul class="navbar">
-            <li><a href="admin">ข้อมูลโปรแกรมการสอน</a></li>
-            <li><a href="admin_teacher">ข้อมูลผู้สอน</a></li>
-            <li><a href="#">ออกจากระบบ</a></li>
+            <li><a href="admin">จัดการโปรแกรมการสอน</a></li>
+            <li><a href="admin_teacher">จัดการผู้สอน</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-link"
+                        style="background: none; border: none; color: #fff; cursor: pointer;">ออกจากระบบ</button>
+                </form>
+            </li>
         </ul>
     </div>
     <div class="main-content">
@@ -217,15 +224,37 @@
                         <td>{{ $course->course_name }}</td>
                         <td>{{ $course->course_category }}</td>
                         <td>{{ $course->course_duration }}</td>
-                        <td>{{ $course->course_other }}</td>
+                        <td>{{ $course->course_details }}</td>
                         <td>{{ $course->course_price }}</td>
                         <td>{{ $course->course_teacher }}</td>
                         <td>{{ $course->course_begin }}</td>
                         <td>{{ $course->course_stop }}</td>
-                        <td> <img src="" alt="images"></td>
+                        <td>
+                            @if ($course->course_image)
+                                <img src="{{ asset('storage/' . $course->course_image) }}" alt="course image"
+                                    style="width: 100px; height: auto;">
+                            @else
+                                <img src="{{ asset('images/default.png') }}" alt="default image"
+                                    style="width: 100px; height: auto;">
+                            @endif
+                        </td>
+
                         <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <!-- Icon for editing -->
+                            <a href="{{ route('courses.edit', $course->id) }}" title="Edit">
+                                <i class="fas fa-edit" style="color: green; cursor: pointer;"></i>
+                            </a>
+
+                            <!-- Icon for deleting -->
+                            <form action="{{ route('courses.destroy', $course->id) }}" method="POST"
+                                style="display: inline;"
+                                onsubmit="return confirm('Are you sure you want to delete this course?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                    <i class="fas fa-trash" style="color: red;"></i>
+                                </button>
+                            </form>
                         </td>
 
                     </tr>

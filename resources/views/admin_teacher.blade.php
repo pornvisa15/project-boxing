@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     @vite('resources/css/app.css')
     <style>
-       * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -116,7 +117,8 @@
         }
 
         .hero-btn i {
-            font-size: 18px; /* Adjust size as needed */
+            font-size: 18px;
+            /* Adjust size as needed */
         }
 
         .hero-btn:hover {
@@ -130,7 +132,8 @@
             margin: 30px 0;
         }
 
-        .table th, .table td {
+        .table th,
+        .table td {
             padding: 12px 15px;
             border: 1px solid #ddd;
             text-align: left;
@@ -168,17 +171,24 @@
         }
     </style>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="{{('assets/17.jpg')}}" alt="Logo">
+                <img src="{{ 'assets/17.jpg' }}" alt="Logo">
             </a>
         </div>
         <ul class="navbar">
-            <li><a href="admin">ข้อมูลโปรแกรมการสอน</a></li>
-            <li><a href="admin_teacher">ข้อมูลผู้สอน</a></li>
-            <li><a href="#">ออกจากระบบ</a></li>
+            <li><a href="{{ route('admin') }}">จัดการโปรแกรมการสอน</a></li>
+            <li><a href="{{ route('admin_teacher') }}">จัดการผู้สอน</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-link"
+                        style="background: none; border: none; color: #fff; cursor: pointer;">ออกจากระบบ</button>
+                </form>
+            </li>
         </ul>
     </div>
     <div class="main-content">
@@ -199,30 +209,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>Muay Thai Champion</td>
-                        <td> <img src="{{('assets/18.jpg')}}" alt="Image" width="50"></td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jane</td>
-                        <td>Smith</td>
-                        <td>Muay Thai Trainer</td>
-                        <td> <img src="{{('assets/18.jpg')}}" alt="Image" width="50"></td>
-                        <td class="action-icons">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
+                    @foreach ($teachers as $teacher)
+                        <tr>
+                            <td>{{ $teacher->teacher_name }}</td>
+                            <td>{{ $teacher->teacher_surname }}</td>
+                            <td>{{ $teacher->teacher_performance }}</td>
+                            <td>
+                                @if ($teacher->teacher_image)
+                                    <img src="{{ asset('storage/' . $teacher->teacher_image) }}" alt="Image"
+                                        width="100">
+                                @else
+                                    ไม่มีรูปภาพ
+                                @endif
+                            </td>
+                            <td class="action-icons">
+                                @if ($teacher->teacher_name !== 'suwichai')
+                                    <a href="{{ route('teachers.edit', $teacher->id) }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('teachers.destroy', $teacher->id) }}" method="POST"
+                                        style="display: inline;"
+                                        onsubmit="return confirm('Are you sure you want to delete this teacher?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                @else
+                                    <!-- ถ้าชื่อเป็น 'suwichai' จะไม่แสดงไอคอนแก้ไขหรือลบ -->
+                                    ไม่มีการจัดการ
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
+
+
+
             </table>
             <p><a href="add_teacher" class="hero-btn">เพิ่ม</a></p>
         </div>
     </div>
 </body>
+
 </html>

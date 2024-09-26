@@ -19,12 +19,11 @@ class Courses extends Model
         'course_name',
         'course_category',
         'course_duration',
-        'course_other',
+        'course_details',
         'course_price',
         'course_teacher',
         'course_begin',
         'course_stop',
         'course_image',
-
     ];
 }

@@ -409,7 +409,7 @@
                     <p>AR ส่วนหน้าของค่าย</p>
                 </div>
                 <div class="box-item2">
-                    <img src="{{ 'assets/q5.png' }}" alt="">
+                    <img src="{{ 'assets/q6.png' }}" alt="">
                     <p>สแกน QR Code เพื่อดู AR</p>
                 </div>
 

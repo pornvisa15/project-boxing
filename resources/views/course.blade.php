@@ -147,14 +147,26 @@
 
     <!-- New White Box Section with three horizontal items -->
     <section class="white-box">
-        <div class="box-item">
-            <img src="{{ 'assets/31.jpg' }}" alt="">
-            <h4>คอร์สมวยไทยสากล</h4>
-            <p><a href="course1" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
 
+
+        <div class="box-item">
+            @foreach ($courses as $course)
+                @if ($course->course_image)
+                    <img src="{{ asset('storage/' . $course->course_image) }}" alt="Image" width="50">
+                @else
+                    ไม่มีรูปภาพ
+                @endif
+                <h4>{{ $course->course_name }}</h4>
+                <p>ราคา: {{ number_format($course->course_price, 2) }} บาท</p>
+                <p>หมวดหมู่: {{ $course->course_category }}</p>
+                <p>ระยะเวลา: {{ $course->course_duration }} วัน</p>
+                <p><a href="{{ url('course1/' . $course->id) }}" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
+            @endforeach
         </div>
 
-        <div class="box-item">
+
+
+        {{-- <div class="box-item">
             <img src="{{ 'assets/32.jpg' }}" alt="">
             <h4>คอร์สมวยไทยลดน้ำหนัก</h4>
             <p><a href="course2" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
@@ -166,7 +178,7 @@
             <h4>คอร์สมวยไทยป้องกันตัว</h4>
             <p><a href="course3" class="hero-btn">รายละเอียดเพิ่มเติม</a></p>
 
-        </div>
+        </div> --}}
     </section>
     <section class="contact-info">
         <div class="container">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,6 +85,7 @@
             text-align: center;
             font-size: 15px;
         }
+
         .sidebar {
             width: 200px;
             background: #4a658e;
@@ -129,79 +131,118 @@
             color: #4a658e;
             border-radius: 5px;
         }
-
-
     </style>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="{{('assets/17.jpg')}}" alt="Logo">
+                <img src="{{ 'assets/17.jpg' }}" alt="Logo">
             </a>
         </div>
         <ul class="navbar">
-            <li><a href="admin">ข้อมูลโปรแกรมการสอน</a></li>
-            <li><a href="admin_teacher">ข้อมูลผู้สอน</a></li>
-            <li><a href="#">ออกจากระบบ</a></li>
+            <li><a href="admin">จัดการโปรแกรมการสอน</a></li>
+            <li><a href="admin_teacher">จัดการผู้สอน</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="nav-link"
+                        style="background: none; border: none; color: #fff; cursor: pointer;">ออกจากระบบ</button>
+                </form>
+            </li>
         </ul>
     </div>
-
     <section class="white-box">
         <div class="container box-item">
             <h1 class="text-center">แก้ไขโปรแกรมการสอน</h1>
-            <form action="add-course.php" method="POST">
+
+            <!-- ฟอร์มสำหรับการแก้ไข -->
+            <form action="{{ route('courses.update', $course->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT') <!-- ใช้ PUT method เพื่ออัปเดตข้อมูล -->
+
                 <div class="mb-3">
                     <label for="course_name" class="form-label">ชื่อโปรแกรมการสอน</label>
-                    <input type="text" class="form-control" id="coursename" name="coursename" required>
-                </div>
-                <div class="mb-3">
-                    <label for="course_category" class="form-label">ประเภทโปรแกรมการสอน</label>
-                    <select class="form-select" id="coursecategory" name="coursecategory" required>
-                        <option value="" disabled selected>กรุณาเลือกประเภท</option>
-                        <option value="คอร์สมวยไทยสากล">คอร์สมวยไทยสากล</option>
-                        <option value="คอร์สมวยไทยลดน้ำหนัก">คอร์สมวยไทยลดน้ำหนัก</option>
-                        <option value="คอร์สมวยไทยป้องกันตัว">คอร์สมวยไทยป้องกันตัว</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="course_duration" class="form-label">ชั่วโมงเรียน</label>
-                    <select class="form-select" id="courseduration" name="courseduration" required>
-                        <option value="" disabled selected>กรุณาเลือกชั่วโมงเรียน</option>
-                        <option value="1 ชั่วโมง">1 ชั่วโมง</option>
-                        <option value="2 ชั่วโมง">2 ชั่วโมง</option>
-                        <option value="3 ชั่วโมง">3 ชั่วโมง</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="course_details" class="form-label">รายละเอียดเพิ่มเติม</label>
-                    <textarea class="form-control" id="coursedetails" name="coursedetails" rows="4" required></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="course_price" class="form-label">ราคา</label>
-                    <input type="text" class="form-control" id="courseprice" name="courseprice" required>
-                </div>
-                <div class="mb-3">
-                    <label for="course_teacher" class="form-label">ครูผู้สอน</label>
-                    <input type="text" class="form-control" id="courseteacher" name="courseteacher" required>
-                </div>
-                <div class="mb-3">
-                    <label for="course_begin" class="form-label">วันที่เริ่ม</label>
-                    <input type="date" class="form-control" id="coursebegin" name="coursebegin" required>
-                </div>
-                <div class="mb-3">
-                    <label for="course_stop" class="form-label">วันที่จบ</label>
-                    <input type="date" class="form-control" id="coursestop" name="coursestop" required>
-                </div>
-                <div class="mb-3">
-                    <label for="course_image" class="form-label">ไฟล์รูปภาพ</label>
-                    <input type="file" class="form-control" id="courseimage" name="courseimage" accept="image/*" required>
+                    <input type="text" class="form-control" id="course_name" name="course_name"
+                        value="{{ $course->course_name }}" required>
                 </div>
 
-                <button type="submit" class="btn-custom">บันทึก</button>
-                <a href="admin" class="btn-custom btn-custom-danger">ยกเลิก</a>
+                <div class="mb-3">
+                    <label for="course_category" class="form-label">ประเภทโปรแกรมการสอน</label>
+                    <select class="form-select" id="course_category" name="course_category" required>
+                        <option value="" disabled>กรุณาเลือกประเภท</option>
+                        <option value="คอร์สมวยไทยสากล"
+                            {{ $course->course_category == 'ศิลปะการป้องกันตัวแบบไทย' ? 'selected' : '' }}>
+                            ศิลปะการป้องกันตัวแบบไทย
+                        </option>
+                        <option value="คอร์สมวยไทยลดน้ำหนัก"
+                            {{ $course->course_category == 'โปรแกรมมวยไทยเอ็กซ์ตรีม' ? 'selected' : '' }}>
+                            โปรแกรมมวยไทยเอ็กซ์ตรีม</option>
+                        <option value="คอร์สมวยไทยป้องกันตัว"
+                            {{ $course->course_category == 'โปรแกรมสร้างสมรรถภาพและพละกำลัง' ? 'selected' : '' }}>
+                            โปรแกรมสร้างสมรรถภาพและพละกำลัง</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_duration" class="form-label">ชั่วโมงเรียน</label>
+                    <select class="form-select" id="course_duration" name="course_duration" required>
+                        <option value="" disabled>กรุณาเลือกชั่วโมงเรียน</option>
+                        <option value="1" {{ $course->course_duration == '1' ? 'selected' : '' }}>1 ชั่วโมง
+                        </option>
+                        <option value="2" {{ $course->course_duration == '2' ? 'selected' : '' }}>2 ชั่วโมง
+                        </option>
+                        <option value="3" {{ $course->course_duration == '3' ? 'selected' : '' }}>3 ชั่วโมง
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_other" class="form-label">รายละเอียดเพิ่มเติม</label>
+                    <textarea class="form-control" id="course_other" name="course_other" rows="4" required>{{ $course->course_other }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_price" class="form-label">ราคา</label>
+                    <input type="text" class="form-control" id="course_price" name="course_price"
+                        value="{{ $course->course_price }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_teacher" class="form-label">ครูผู้สอน</label>
+                    <input type="text" class="form-control" id="course_teacher" name="course_teacher"
+                        value="{{ $course->course_teacher }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_begin" class="form-label">วันที่เริ่ม</label>
+                    <input type="date" class="form-control" id="course_begin" name="course_begin"
+                        value="{{ $course->course_begin }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_stop" class="form-label">วันที่จบ</label>
+                    <input type="date" class="form-control" id="course_stop" name="course_stop"
+                        value="{{ $course->course_stop }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course_image" class="form-label">ไฟล์รูปภาพ</label>
+                    <input type="file" class="form-control" id="course_image" name="course_image"
+                        accept="image/*">
+                    <!-- แสดงรูปปัจจุบัน -->
+                    @if ($course->course_image)
+                        <img src="{{ asset('storage/' . $course->course_image) }}" alt="Course Image"
+                            style="max-width: 150px; margin-top: 10px;">
+                    @endif
+                </div>
+
+                <button type="submit" class="btn-custom">บันทึกการเปลี่ยนแปลง</button>
+                {{-- <a href="{{ route('admin') }}" class="btn-custom btn-custom-danger">ยกเลิก</a> --}}
             </form>
         </div>
     </section>
 </body>
+
 </html>

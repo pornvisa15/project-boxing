@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,6 +154,20 @@
     .register-link p a:hover {
         text-decoration: underline;
     }
+
+    .alert {
+        font-size: 1.5rem;
+        /* ขนาดฟอนต์ที่ใหญ่ขึ้น *
+        /* สีพื้นหลังที่เหมาะสม */
+        color: #721c24;
+        /* สีตัวอักษร */
+        padding: 15px;
+        /* เพิ่ม padding */
+
+        /* มุมโค้ง */
+        margin-bottom: 20px;
+        /* ระยะห่างด้านล่าง */
+    }
 </style>
 
 <body>
@@ -163,7 +178,7 @@
                     @csrf
                     <h1>Login</h1>
                     <div class="input-box">
-                        <input type="text" placeholder="Username"  name="teacher_name" required>
+                        <input type="text" placeholder="Username" name="teacher_name" required>
                         <i class="fas fa-user"></i>
                     </div>
 
@@ -178,6 +193,13 @@
 
                     <button type="submit" class="btn">Login</button>
                 </form>
+
+                @if ($errors->has('login_error'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('login_error') }}
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>
@@ -202,4 +224,5 @@
         <button type="submit" class="btn">Login</button>
     </form> --}}
 </body>
+
 </html>

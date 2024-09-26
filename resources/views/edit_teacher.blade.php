@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,6 +85,7 @@
             text-align: center;
             font-size: 15px;
         }
+
         .sidebar {
             width: 200px;
             background: #4a658e;
@@ -109,6 +111,7 @@
             width: 80px;
         }
 
+
         .sidebar .navbar {
             list-style: none;
             padding: 0;
@@ -129,15 +132,14 @@
             color: #4a658e;
             border-radius: 5px;
         }
-
-
     </style>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="{{('assets/17.jpg')}}" alt="Logo">
+                <img src="{{ 'assets/17.jpg' }}" alt="Logo">
             </a>
         </div>
         <ul class="navbar">
@@ -150,30 +152,47 @@
     <section class="white-box">
         <div class="container box-item">
             <h1 class="text-center">แก้ไขครูผู้สอน</h1>
-            <form action="add-course.php" method="POST">
+
+            <!-- ฟอร์มการแก้ไขข้อมูลผู้สอน -->
+            <!-- เปลี่ยน `action` ไปยังเส้นทางสำหรับการอัปเดต และเพิ่ม `PATCH` method -->
+            <form action="{{ route('teachers.update', $teacher->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT') <!-- Ensure you're using PUT method -->
+
                 <div class="mb-3">
                     <label for="teacher_name" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" id="coursename" name="coursename" required>
-                </div>
-                <div class="mb-3">
-                    <label for="teacher_surname" class="form-label">นามสกุล</label>
-                    <input type="text" class="form-control" id="courseprice" name="courseprice" required>
-                </div>
-                <div class="mb-3">
-                    <label for="teacher_ performance" class="form-label">ผลงาน</label>
-                    <textarea class="form-control" id="coursedetails" name="coursedetails" rows="4" required></textarea>
+                    <!-- เพิ่มค่าเริ่มต้นที่มาจากข้อมูลในฐานข้อมูล -->
+                    <input type="text" class="form-control" id="teacher_name" name="teacher_name"
+                        value="{{ old('teacher_name', $teacher->teacher_name) }}" required>
                 </div>
 
+                <div class="mb-3">
+                    <label for="teacher_surname" class="form-label">นามสกุล</label>
+                    <input type="text" class="form-control" id="teacher_surname" name="teacher_surname"
+                        value="{{ old('teacher_surname', $teacher->teacher_surname) }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="teacher_performance" class="form-label">ผลงาน</label>
+                    <textarea class="form-control" id="teacher_performance" name="teacher_performance" rows="4" required>{{ old('teacher_performance', $teacher->teacher_performance) }}</textarea>
+                </div>
 
                 <div class="mb-3">
                     <label for="teacher_image" class="form-label">ไฟล์รูปภาพ</label>
-                    <input type="file" class="form-control" id="courseimage" name="courseimage" accept="image/*" required>
+                    <input type="file" class="form-control" id="teacher_image" name="teacher_image" accept="image/*">
+                    <!-- แสดงภาพปัจจุบันหากมี -->
+                    @if ($teacher->teacher_image)
+                        <p>รูปภาพปัจจุบัน:</p>
+                        <img src="{{ asset('storage/' . $teacher->teacher_image) }}" alt="Teacher Image" width="150">
+                    @endif
                 </div>
 
-                <button type="submit" class="btn-custom">บันทึก</button>
-                <a href="admin_teacher" class="btn-custom btn-custom-danger">ยกเลิก</a>
+                <!-- ปุ่มบันทึกการเปลี่ยนแปลง -->
+                <button type="submit" class="btn-custom">บันทึกการเปลี่ยนแปลง</button>
+                <a href="{{ route('admin_teacher') }}" class="btn-custom btn-custom-danger">ยกเลิก</a>
             </form>
         </div>
     </section>
 </body>
+
 </html>

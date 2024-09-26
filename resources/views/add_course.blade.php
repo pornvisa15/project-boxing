@@ -142,8 +142,8 @@
             </a>
         </div>
         <ul class="navbar">
-            <li><a href="admin">ข้อมูลโปรแกรมการสอน</a></li>
-            <li><a href="admin_teacher">ข้อมูลผู้สอน</a></li>
+            <li><a href="admin">จัดการโปรแกรมการสอน</a></li>
+            <li><a href="admin_teacher">จัดการผู้สอน</a></li>
             <li><a href="#">ออกจากระบบ</a></li>
         </ul>
     </div>
@@ -151,7 +151,7 @@
     <section class="white-box">
         <div class="container box-item">
             <h1 class="text-center">เพิ่มโปรแกรมการสอน</h1>
-            <form action="{{ route('courses.store') }}" method="POST">
+            <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="course_name" class="form-label">ชื่อโปรแกรมการสอน</label>
@@ -161,9 +161,9 @@
                     <label for="course_category" class="form-label">ประเภทโปรแกรมการสอน</label>
                     <select class="form-select" id="course_category" name="course_category">
                         <option value="" disabled selected>กรุณาเลือกประเภท</option>
-                        <option value="คอร์สมวยไทยสากล">คอร์สมวยไทยสากล</option>
-                        <option value="คอร์สมวยไทยลดน้ำหนัก">คอร์สมวยไทยลดน้ำหนัก</option>
-                        <option value="คอร์สมวยไทยป้องกันตัว">คอร์สมวยไทยป้องกันตัว</option>
+                        <option value="คอร์สมวยไทยสากล">ศิลปะการป้องกันตัวแบบไทย</option>ฮ
+                        <option value="คอร์สมวยไทยลดน้ำหนัก">โปรแกรมมวยไทยเอ็กซ์ตรีม</option>
+                        <option value="คอร์สมวยไทยป้องกันตัว">โปรแกรมสร้างสมรรถภาพและพละกำลัง</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -198,6 +198,9 @@
                 <div class="mb-3">
                     <label for="course_image" class="form-label">ไฟล์รูปภาพ</label>
                     <input type="file" class="form-control" id="course_image" name="course_image" accept="image/*">
+                    @error('course_image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn-custom">บันทึก</button>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,6 @@
             text-decoration: none;
             color: #007bff;
             margin-right: 15px;
-
         }
 
         .navbar a:hover {
@@ -36,7 +36,6 @@
             border: 1px solid #ddd;
             max-width: 600px;
             margin: 0 auto;
-
         }
 
         .box-item h1 {
@@ -51,11 +50,10 @@
             background-color: #007bff;
             border: none;
             color: #fff;
-            padding: 4px 4px;
+            padding: 10px 20px;
             border-radius: 5px;
             font-size: 14px;
             margin-right: 10px;
-            text-decoration: none;
         }
 
         .btn-custom:hover {
@@ -74,16 +72,6 @@
             font-size: 1.2rem;
         }
 
-        .header .navbar a {
-            margin: 0 2rem;
-            font-size: 1.7rem;
-            color: rgb(0, 0, 0);
-        }
-
-        a {
-            text-align: center;
-            font-size: 15px;
-        }
         .sidebar {
             width: 200px;
             background: #4a658e;
@@ -93,11 +81,6 @@
             left: 0;
             top: 0;
             padding-top: 20px;
-        }
-
-        a {
-            text-align: center;
-            font-size: 15px;
         }
 
         .sidebar .logo {
@@ -121,7 +104,6 @@
         .sidebar .navbar li a {
             color: #fff;
             text-decoration: none;
-
         }
 
         .sidebar .navbar li a:hover {
@@ -129,20 +111,19 @@
             color: #4a658e;
             border-radius: 5px;
         }
-
-
     </style>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="{{('assets/17.jpg')}}" alt="Logo">
+                <img src="{{ 'assets/17.jpg' }}" alt="Logo">
             </a>
         </div>
         <ul class="navbar">
-            <li><a href="admin">ข้อมูลโปรแกรมการสอน</a></li>
-            <li><a href="admin_teacher">ข้อมูลผู้สอน</a></li>
+            <li><a href="admin">จัดการโปรแกรมการสอน</a></li>
+            <li><a href="admin_teacher">จัดการผู้สอน</a></li>
             <li><a href="#">ออกจากระบบ</a></li>
         </ul>
     </div>
@@ -150,24 +131,26 @@
     <section class="white-box">
         <div class="container box-item">
             <h1 class="text-center">เพิ่มครูผู้สอน</h1>
-            <form action="add-course.php" method="POST">
+            <form action="{{ route('teachers.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf <!-- เพิ่มโค้ดนี้เพื่อป้องกัน CSRF -->
                 <div class="mb-3">
                     <label for="teacher_name" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" id="coursename" name="coursename" required>
+                    <input type="text" class="form-control" id="teacher_name" name="teacher_name" required>
                 </div>
                 <div class="mb-3">
                     <label for="teacher_surname" class="form-label">นามสกุล</label>
-                    <input type="text" class="form-control" id="courseprice" name="courseprice" required>
+                    <input type="text" class="form-control" id="teacher_surname" name="teacher_surname" required>
                 </div>
                 <div class="mb-3">
-                    <label for="teacher_ performance" class="form-label">ผลงาน</label>
-                    <textarea class="form-control" id="coursedetails" name="coursedetails" rows="4" required></textarea>
+                    <label for="teacher_performance" class="form-label">ผลงาน</label>
+                    <textarea class="form-control" id="teacher_performance" name="teacher_performance" rows="4" required></textarea>
                 </div>
 
 
                 <div class="mb-3">
                     <label for="teacher_image" class="form-label">ไฟล์รูปภาพ</label>
-                    <input type="file" class="form-control" id="courseimage" name="courseimage" accept="image/*" required>
+                    <input type="file" class="form-control" id="teacher_image" name="teacher_image" accept="image/*"
+                        required>
                 </div>
 
                 <button type="submit" class="btn-custom">บันทึก</button>
@@ -176,4 +159,5 @@
         </div>
     </section>
 </body>
+
 </html>

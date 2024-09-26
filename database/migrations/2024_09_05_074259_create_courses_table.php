@@ -32,7 +32,7 @@ return new class extends Migration {
             $table->string('teacher_surname'); // นามสกุลครู
             $table->string('teacher_performance'); // การแสดงผล
             $table->string('teacher_image')->nullable(); // รูปภาพครู
-            $table->string('password'); // รหัสผ่าน (hashed)
+            $table->string('password')->nullable(); // รหัสผ่าน (hashed)
             $table->timestamps();
         });
 

@@ -31,29 +31,33 @@ class AuthControllre extends Controller
 
 
     public function login(Request $request)
-{
+    {
+        // ขั้นตอนแรก: ตรวจสอบข้อมูลที่ผู้ใช้กรอก
+        $credentials = $request->validate([
+            'teacher_name' => 'required|string',
+            'password' => 'required|string',
+        ]);
 
+        // ขั้นตอนที่สอง: พยายามล็อกอินด้วยข้อมูลที่ตรวจสอบแล้ว
+        if (Auth::attempt($credentials)) {
+            // ตรวจสอบบทบาทของผู้ใช้
+            $user = Auth::user();
 
-    $credentials = $request->validate([
-        'teacher_name' => 'required|string',
-        'password' => 'required|string',
-    ]);
+            // สมมติว่าคุณมีคอลัมน์ 'role' ในฐานข้อมูลเพื่อกำหนดบทบาทผู้ใช้
+            if ($user->teacher_name === 'suwichai') {
+                return redirect('admin'); // เส้นทางสำหรับ admin
+            } else {
+                return redirect('admin_teacher'); // เส้นทางสำหรับผู้สอน
+            }
+        }
 
-    if (Auth::attempt($credentials)) {
-        $user = Auth::user();
-        // return response()->json([
-        //     'message' => 'Login successful',
-        //     'user' => $user,
-        // ], 200);
-  return  redirect('admin');
+        // หากล็อกอินไม่สำเร็จ
+        return redirect()->route('loginpages')->withErrors([
+            'login_error' => 'ข้อมูลผิดพลาด',
+        ]);
     }
 
-    return response()->json([
-        'message' => 'Invalid credentials',
-    ], 401);
 
-
-}
 
 
     // ฟังก์ชันออกจากระบบ
@@ -61,9 +65,11 @@ class AuthControllre extends Controller
     {
         Auth::logout();
 
-        return response()->json([
-            'message' => 'Logged out successfully',
+        return redirect()->route('loginpages')->withErrors([
+            'message' => 'ออกจากระบบสำเร็จ',
         ]);
+
+
     }
 
 

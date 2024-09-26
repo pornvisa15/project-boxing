@@ -114,9 +114,12 @@
 </head>
 
 <body>
+
+
     <header class="header">
         <a href="#" class="logo">
-            <img src="{{ 'assets/17.jpg' }}" alt="Logo">
+            <img src="{{ asset('assets/17.jpg') }}" alt="Logo">
+
         </a>
 
         <!-- First nav for "สถานที่" and "ท่ามวย" -->
@@ -164,7 +167,7 @@
         <div class="container">
             <div class="hero-con">
                 <div class="hero-info">
-                    <h3>คอร์สมวยไทยสากล</h3>
+                    <h3>ศิลปะการป้องกันตัวแบบไทย</h3>
                 </div>
             </div>
         </div>
@@ -173,34 +176,38 @@
     <!-- New White Box Section with horizontal image and content -->
     <section class="white-box">
         <div class="box-item">
-            <div class=" box">
-                <img src="{{ 'assets/31.jpg' }}" alt="">
-                <h4>คอร์สมวยไทยสากล</h4>
+            <div class="box">
+                @if ($datafind->course_image)
+                    <img src="{{ asset('storage/' . $datafind->course_image) }}" alt="Image" width="50">
+                @else
+                    ไม่มีรูปภาพ
+                @endif
+                <h4>{{ $datafind->course_name }}</h4>
             </div>
             <div class="content">
-
                 <h4>ระยะเวลาเรียน</h4>
-                <p> 1 ชั่วโมง 30 นาที</p>
+                <p>{{ $datafind->course_duration }} ชั่วโมง</p>
+
                 <h4>รายละเอียด</h4>
-                <p>- เริ่มต้นสอนจากพื้นฐาน ตั้งแต่การยืน การเคลื่อนไหว</p>
-                <p>- สอนแบบตัวต่อตัว กับ ครูมวยสากล</p>
-                <p>- ผู้ที่ต้องการฝึกชกมวยสากลแบบจริงจัง</p>
-                <p>- ผู้ที่การเทคนิคการป้องกันตัวแบบ ใช้ได้จริงในสถานการณ์คับขัน</p>
-                <p>- ผู้ที่ต้องการลดน้ำหนัก หรือ เพิ่มกล้ามเนื้อ เนื่องจากในคอร์สนี้
-                    ทางครูมวยจะเน้นสอนเทคนิคการชกเป็นหลัก</p>
+                <p>{{ $datafind->course_details }}</p>
+
                 <h4>ราคา</h4>
-                <p> 15,000 บาท </p>
+                <p>{{ number_format((float) $datafind->course_price, 2, '.', ',') }} บาท</p>
+
                 <h4>ผู้สอน</h4>
-                <p>ครูแรมโบ้</p>
+                <p>{{ $datafind->course_teacher }}</p>
+
                 <h4>วันที่เริ่ม</h4>
-                <p>1 เมษายน 2567</p>
+                <p>{{ \Carbon\Carbon::parse($datafind->course_begin)->format('d F Y') }}</p>
+
                 <h4>วันที่จบ</h4>
-                <p>30 เมษายน 2567</p>
+                <p>{{ \Carbon\Carbon::parse($datafind->course_stop)->format('d F Y') }}</p>
 
+                <a href="{{ route('course.list') }}" class="hero-btn">กลับ</a>
 
-                <a href="course" class="hero-btn">กลับ</a>
             </div>
         </div>
+
     </section>
     <section class="contact-info">
         <div class="container">

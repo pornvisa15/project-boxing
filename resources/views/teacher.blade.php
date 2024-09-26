@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -98,10 +98,13 @@
 </head>
 
 <body>
+
+
     <header class="header">
         <a href="#" class="logo">
             <img src="{{ 'assets/17.jpg' }}" alt="Logo">
         </a>
+
 
         <!-- First nav for "สถานที่" and "ท่ามวย" -->
         <nav class="navbar">
@@ -203,6 +206,196 @@
         </div>
         </div>
     </section>
+</body>
+
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ทีมงาน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    @vite('resources/css/app.css')
+    <style>
+        .hero {
+            background-color: #7ba5e4;
+            text-align: justify;
+        }
+
+        .white-box {
+            background-color: #7ba5e4;
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            font-size: 1.5rem;
+        }
+
+        .box-item div {
+            flex: 1;
+            /* ทำให้ข้อความขยายเต็มพื้นที่ที่เหลือ */
+        }
+
+        .white-box .box-item {
+            display: flex;
+            flex-direction: row;
+            /* จัดวางในแนวนอน */
+            justify-content: flex-start;
+            /* จัดให้อยู่ทางซ้าย */
+            align-items: center;
+            /* จัดให้อยู่ตรงกลางในแนวดิ่ง */
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: left;
+            /* จัดข้อความให้อยู่ทางซ้าย */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-height: 200px;
+            /* กำหนดความสูงขั้นต่ำ */
+            gap: 20px;
+            /* เว้นช่องว่างระหว่างรูปภาพและเนื้อหา */
+        }
+
+        .header .navbar a:hover,
+        .box-item .hero-btn:hover {
+            color: #ffd700;
+        }
+
+        .box-item img {
+            width: 150px;
+            /* ปรับขนาดรูปภาพ */
+            height: 150px;
+            object-fit: cover;
+            /* ทำให้รูปภาพไม่บิดเบี้ยว */
+            margin: 0;
+            /* ลบการจัดกึ่งกลาง */
+        }
+
+        /* Button Styles */
+        .hero-btn,
+        .blog-btn,
+        .blod-title {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #c49564;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-btn:hover,
+        .blog-btn:hover,
+        .blod-title:hover {
+            background-color: #8f6d4a;
+        }
+
+        .navbar a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="{{ 'assets/17.jpg' }}" alt="Logo">
+        </a>
+
+
+        <!-- First nav for "สถานที่" and "ท่ามวย" -->
+        <nav class="navbar">
+            <a href="welcome">หน้าแรก</a>
+
+            <!-- Dropdown for "สถานที่" -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">สถานที่</a>
+                <div class="dropdown-content">
+                    <a href="place1">หน้าค่ายมวย</a>
+                    <a href="place2">เวทีมวย</a>
+                    <a href="place3">ยิม</a>
+                </div>
+
+            </div>
+
+            <!-- Dropdown for "ท่ามวย" -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">ท่ามวย</a>
+                <div class="dropdown-content">
+                    <a href="boxing1">ท่าหมัดตรง</a>
+                    <a href="boxing2">ท่าหมัดเสย</a>
+                    <a href="boxing3">ท่าเข่าเฉียง</a>
+                    <a href="boxing4">ท่าศอกงัด</a>
+                    <a href="boxing5">ท่าแตะตัด</a>
+                </div>
+            </div>
+
+
+
+            <a href="course">โปรแกรมการสอน</a>
+            <a href="teacher">ทีมงาน</a>
+            <a href="contact">ติดต่อเรา</a>
+            <a href="loginpages">เข้าสู่ระบบ</a>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <div class="img1">
+            <img src="{{ asset('assets/25.jpg') }}" alt="">
+        </div>
+        <div class="container">
+            <div class="hero-con">
+                <div class="hero-info">
+                    <h3>ทีมงาน</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loop through $teachers array and display each teacher's info -->
+    @foreach ($teachers as $teacher)
+        <section class="white-box">
+            <div class="box-item">
+                @if ($teacher->teacher_image)
+                    <img src="{{ asset('storage/' . $teacher->teacher_image) }}" alt="Image" width="50">
+                @else
+                    ไม่มีรูปภาพ
+                @endif
+                <div>
+                    <h4>ชื่อ-นามสกุล</h4>
+                    <p>{{ $teacher->teacher_name }} {{ $teacher->teacher_surname }}</p>
+                    <h4>ผลงาน</h4>
+                    <p>{{ $teacher->teacher_performance }}</p>
+
+                </div>
+            </div>
+        </section>
+    @endforeach
+
+    <section class="contact-info">
+        <div class="container">
+            <h2>ติดต่อเรา</h2>
+            <p><strong>ที่อยู่:</strong> <a href="https://maps.app.goo.gl/nSyjQjgojQYG2BLo6">สนามมวยลานนา
+                    โฮมสเตย์&เรสเตอร์รอง ตำบล ควนมะพร้าว เมือง พัทลุง 93000</a></p>
+            <p><strong>โทรศัพท์:</strong> <a href="#">+684 247 9665</a></p>
+            <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100063753060493">เพจ:
+                    ค่ายมวยลานนาวอเตอร์ไซด์</a></p>
+        </div>
+    </section>
+
 </body>
 
 </html>
