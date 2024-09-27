@@ -104,6 +104,7 @@
         .sidebar .navbar li a {
             color: #fff;
             text-decoration: none;
+            font-size: 15px;
         }
 
         .sidebar .navbar li a:hover {

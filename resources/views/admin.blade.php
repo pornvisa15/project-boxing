@@ -60,6 +60,7 @@
         .sidebar .navbar li a {
             color: #fff;
             text-decoration: none;
+            font-size: 15px;
 
         }
 
@@ -68,6 +69,7 @@
             color: #4a658e;
             border-radius: 5px;
         }
+
 
 
         .main-content {
@@ -171,11 +173,39 @@
             left: 200px;
             width: calc(100% - 200px);
         }
+
+        /* จัดสไตล์ให้กับลิงก์ในเมนู */
+
+        /* จัดการระยะห่างและสไตล์ของฟอร์ม logout ให้เหมือนลิงก์ */
+        .logout-form {
+            display: block;
+            /* แสดงฟอร์มเป็น block */
+            width: 100%;
+            /* ให้ฟอร์มมีขนาดเต็มพื้นที่ */
+        }
+
+        /* .nav-link {
+            color: #fff;
+            background: none;
+            border: none;
+            display: block;
+            padding: 15px 20px;
+            text-align: left;
+            /* จัดข้อความให้อยู่ตรงกลาง */
+        width: 100%;
+        /* ให้ปุ่มมีขนาดเต็มความกว้างของพ่อ */
+        cursor: pointer;
+        /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อ hover */
+        text-decoration: none;
+        /* เอาขีดเส้นใต้ลิงก์ออก */
+        }
+
+        */
+        /* สไตล์ hover เมื่อชี้ลิงก์และปุ่ม logout */
     </style>
 </head>
 
 <body>
-
     <div class="sidebar">
         <div class="logo">
             <a href="#">
@@ -194,6 +224,8 @@
             </li>
         </ul>
     </div>
+
+
     <div class="main-content">
         <div class="admin-header">
             <h1>Admin</h1>
